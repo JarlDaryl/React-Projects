@@ -1,5 +1,5 @@
 import reactImg from './assets/react-core-concepts.png';
-import componentsImg from './assets/components.png';
+import { CORE_CONCEPTS } from './data.js';
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
@@ -22,12 +22,12 @@ function Header() {
 	);
 }
 
-function CoreConcept(props) {
+function CoreConcept({ image, title, description }) {
 	return (
 		<li>
-			<img src={props.image} alt={props.title} />
-			<h3>{props.title}</h3>
-			<p>{props.description}</p>
+			<img src={image} alt={title} />
+			<h3>{title}</h3>
+			<p>{description}</p>
 		</li>
 	);
 }
@@ -40,14 +40,15 @@ function App() {
 				<section id='core-concepts'>
 					<h2>Core Concept</h2>
 					<ul>
+						<CoreConcept {...CORE_CONCEPTS[0]}/>
+						<CoreConcept {...CORE_CONCEPTS[1]}/>
+						<CoreConcept {...CORE_CONCEPTS[2]}/> {/*Esta es la forma corta con el spread operator. Hace exactamente lo mismo que la linea de abajo pero con mucho menos codigo. */}
+
 						<CoreConcept
-							title='Components'
-							description='The core UI building block.'
-              image={componentsImg}
+						title={CORE_CONCEPTS[3].title}
+						description={CORE_CONCEPTS[3].description}
+              			image={CORE_CONCEPTS[3].image}
 						/>
-						<CoreConcept />
-						<CoreConcept />
-						<CoreConcept />
 					</ul>
 				</section>
 			</main>
