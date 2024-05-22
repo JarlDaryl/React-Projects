@@ -20,15 +20,7 @@ function App() {
 				<section id='core-concepts'>
 					<h2>Core Concept</h2>
 					<ul>
-						<CoreConcept {...CORE_CONCEPTS[0]} />
-						<CoreConcept {...CORE_CONCEPTS[1]} />
-						<CoreConcept {...CORE_CONCEPTS[2]} />{' '}
-						{/*Esta es la forma corta con el spread operator. Hace exactamente lo mismo que la linea de abajo pero con mucho menos codigo. */}
-						<CoreConcept
-							title={CORE_CONCEPTS[3].title}
-							description={CORE_CONCEPTS[3].description}
-							image={CORE_CONCEPTS[3].image}
-						/>
+						{CORE_CONCEPTS.map((conceptItem) => <CoreConcept key={conceptItem.title} {...conceptItem} />)}
 					</ul>
 				</section>
 				<section id='examples'>
