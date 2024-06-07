@@ -11,6 +11,8 @@ function App() {
 		duration: 10,
 	});
 
+  const inputIdValid = userInput.duration >= 1;
+
   function handleChange(inputIdentifier, newValue) {
 		setUserInput((prevUserInput) => {
 			return {
@@ -25,7 +27,8 @@ function App() {
     <>
       <Header />
       <UserInput onChange={handleChange} userInput={userInput}/>
-      <Results input={userInput} />
+      {!inputIdValid && <p className="center">Please enter a duration greater than 0.</p>}
+      {inputIdValid && <Results input={userInput} />}
     </>
   )
 }
