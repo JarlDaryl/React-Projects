@@ -7,7 +7,7 @@ export default function Player() {
 
 	function handleClick() {
 		 setEnteredPlayerName(playerName.current.value);
-     playerName.current.value = '';
+     playerName.current.value = ''; //Clears the input field after the state has been updated
 	}
 
 	return (
